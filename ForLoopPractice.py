@@ -13,3 +13,10 @@ for a in range(5,11,2):
     print(a)
 print("StartStopStep =",x) 	# answer = 5 + 7 + 9 = 21
 
+y = 0
+for b in range(5,11,2):
+	y += b 
+	if y == 5:
+		break
+		y += 1
+print("StartStepStopBreak =",y)
