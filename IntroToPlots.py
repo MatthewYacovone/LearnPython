@@ -1,3 +1,7 @@
+# This code will serve as an introduction to plotting and I will be plotting data
+# from my Aerospace Structures I Lab 1
+# Matthew Yacovone
+
 # importing the required module
 import matplotlib.pyplot as plt
   
