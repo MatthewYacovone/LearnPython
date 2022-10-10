@@ -1,5 +1,5 @@
 # My version of the NYT Wordle
-# The user has a maximum of 6 attempts to guess the correct 5-letter word
+# The user has a maximum of 6 attempts to guess a 5-letter word
 # If a letter is in the right place it will show as green
 # If a letter is in the word but in the wrong place it will show as yellow
 # Matthew Yacovone
@@ -14,7 +14,8 @@ wordList = ('which', 'there', 'their', 'about', 'would', 'these', 'other', 'word
 def has_letter(guess,word):
     """
     This function will change the colors of the letters of the guess to either green
-    or yellow depending how they match to the Wordle. It will return the changed letters.
+    or yellow depending how they match to the Wordle. It will return a value, x, to break
+    the while loop in which this function was called.
     """
 
     new = []
