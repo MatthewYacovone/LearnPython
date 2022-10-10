@@ -20,35 +20,44 @@ def has_letter(guess,word):
     new = []
     for i in range(5):
         if guess[i] in word:
-            #it is in the word
+        
+            # The letter is in the right place
             if guess[i] == word[i]:
+                new.append(guess[i])
                 green = (Fore.GREEN + guess[i])
-                new.append(green)
+                print(green)
+                if new == list(word):
+                    x = 1
+                    return(x)
+            
+            # The letter exists but is in the wrong place
             else:
                 yellow = (Fore.YELLOW + guess[i])
-                new.append(yellow)
+                print(yellow)
+                
+        # The letters not contained in the Wordle
         else:
-            new.append(guess[i])
-    return(new)
+            print(guess[i])
     
 def main():
-        print("? ? ? ? ?")
-        word = random.choice(wordList)
-        print(word)
-        attempts = 0
-        while attempts < 6:
-	        attempts += 1
+    print("? ? ? ? ?")
+    word = random.choice(wordList)
+    attempts = 0
+    x = 0
+    
+    # Prompt user for guesses
+    while attempts < 6 and x != 1:
+	    attempts += 1
+	    guess = input("Guess a 5-letter word: ")
+	    while len(guess) != 5:
+	        print("Invalid Guess. Try Again")
 	        guess = input("Guess a 5-letter word: ")
-	        while len(guess) != 5:
-	            print("Invalid Guess. Try Again")
-	            guess = input("Guess a 5-letter word: ")
-	        new = has_letter(guess,word)
-	        new.append(Fore.RESET)
-	        if new == word:
-	            print(new)
-	            print("Congradulations")
-	            break
-	        print(new)
-        
+	    x = has_letter(guess,word)
+	    
+	# Closing statements
+    if x == 1:
+	    print("Congratulations! You guessed the Wordle in %d attempt(s)!" % attempts)
+    if attempts == 6:
+	    print("Sorry you lose!")        
 
 main()
